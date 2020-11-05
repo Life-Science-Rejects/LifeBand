@@ -1,34 +1,34 @@
 class EmergencyContactsController < ApplicationController
     def index
-        @contacts = EmergencyContact.all
-        render json: contacts
+        emergency_contacts = EmergencyContact.all
+        render json: emergency_contacts
     end
 
     def create
-        @contact = EmergencyContact.create(emergency_contact_params)
+        emergency_contact = EmergencyContact.create(emergency_contact_params)
         if contact.valid?
-            render json: contact
+            render json: emergency_contact
         else
-            render json: contact.errors, status: :unprocessable_entity
+            render json: emergency_contact.errors, status: :unprocessable_entity
         end
     end
 
     def update
-        @contact = current_user.emergency_contacts.find(params[:id])
-        @contact.update(emergency_contact_params)
-        if contact.valid?
-            render json: contact
+        emergency_contact = current_user.emergency_contacts.find(params[:id])
+        emergency_contact.update(emergency_contact_params)
+        if emergency_contact.valid?
+            render json: emergency_contact
         else
-            render json: contact.errors, status: :unprocessable_entity
+            render json: emergency_contact.errors, status: :unprocessable_entity
         end
     end
 
     def destroy
-        @contact = current_user.emergency_contacts.find(params[:id])
-        if contact.destroy
-            render json: contact
+        emergency_contact = current_user.emergency_contacts.find(params[:id])
+        if emergency_contact.destroy
+            render json: emergency_contact
         else
-            render json: contact.errors, status: :unprocessable_entity
+            render json: emergency_contact.errors, status: :unprocessable_entity
         end
     end
 

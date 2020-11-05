@@ -1,34 +1,34 @@
 class PersonalInfosController < ApplicationController
     def index
-        @infos = PersonalInfo.all
-        render json: infos
+        personal_infos = PersonalInfo.all
+        render json: personal_infos
     end
 
     def create
-        @info = PersonalInfo.create(personal_info_params)
-        if info.valid?
-            render json: info
+        info = PersonalInfo.create(personal_info_params)
+        if personal_info.valid?
+            render json: personal_info
         else
-            render json: info.errors, status: :unprocessable_entity
+            render json: personal_info.errors, status: :unprocessable_entity
         end
     end
 
     def update
-        @info = current_user.personal_infos.find(params[:id])
-        @info.update(personal_info_params)
-        if info.valid?
-            render json: info
+        personal_info = current_user.personal_infos.find(params[:id])
+        personal_info.update(personal_info_params)
+        if personal_info.valid?
+            render json: personal_info
         else
-            render json: info.errors, status: :unprocessable_entity
+            render json: personal_info.errors, status: :unprocessable_entity
         end
     end
 
     def destroy
-        @info = current_user.personal_infos.find(params[:id])
-        if info.destroy
-            render json: info
+        personal_info = current_user.personal_infos.find(params[:id])
+        if personal_info.destroy
+            render json: personal_info
         else
-            render json: info.errors, status: :unprocessable_entity
+            render json: personal_info.errors, status: :unprocessable_entity
         end
     end
 

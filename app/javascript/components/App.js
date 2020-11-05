@@ -34,7 +34,7 @@ class App extends React.Component {
       <Router>
         <Header />
         <Switch>
-          {/* Unprotected Routes */}
+          { /* Unprotected Routes */ }
           <Route
             path="/userprofileindex"
             render={ (props) => <UserProfile info={ this.state.personalInfo }/>}
@@ -42,7 +42,7 @@ class App extends React.Component {
           </Route>
 
 
-          {/* Protected Routes */}
+          { /* Protected Routes */ }
         </Switch>
       <Home />
       <LearnMore />
