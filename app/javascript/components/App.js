@@ -17,11 +17,13 @@ import MyUserProfile from './pages/MyUserProfile'
 import MyUserProfileEdit from './pages/MyUserProfileEdit'
 import UserProfile from './pages/UserProfile'
 
-
-
-
-
 class App extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      personalInfo: mockPersonalInfo
+    }
+  }
   render() {
     const {
       logged_in,
@@ -29,8 +31,19 @@ class App extends React.Component {
       sign_out_route
     } = this.props
     return (
-      <>
-      <Header />
+      <Router>
+        <Header />
+        <Switch>
+          { /* Unprotected Routes */ }
+          <Route
+            path="/userprofileindex"
+            render={ (props) => <UserProfile info={ this.state.personalInfo }/>}
+            >
+          </Route>
+
+
+          { /* Protected Routes */ }
+        </Switch>
       <Home />
       <LearnMore />
       <DevTeam />
@@ -47,8 +60,7 @@ class App extends React.Component {
           </div>
         }
         <Footer />
-
-      </>
+      </Router>
     )
   }
 }
