@@ -7,15 +7,13 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 
 import DevTeam from './pages/DevTeam'
-import EmergencyContactsIndex from './components/EmergencyContactsIndex'
+import EmergencyContacts from './components/EmergencyContacts'
 import Faq from './pages/Faq'
 import Home from './pages/Home'
 import LearnMore from './pages/LearnMore'
 import NotFound from './pages/NotFound'
-import MyEmergencyContactsEdit from './pages/MyEmergencyContactsEdit'
-import MyEmergencyContactsIndex from './components/MyEmergencyContactsIndex'
-import MyUserProfile from './pages/MyUserProfile'
-import MyUserProfileEdit from './pages/MyUserProfileEdit'
+import EmergencyContactsEdit from './pages/EmergencyContactsEdit'
+import UserProfileEdit from './pages/UserProfileEdit'
 import UserProfile from './pages/UserProfile'
 
 import mockPersonalInfo from './mockPersonalInfo.js'
@@ -30,6 +28,11 @@ class App extends Component {
       emergencyContact: mockEmergencyContact
     }
   }
+
+  updatePersonalInfo = (personalInfo, id) => {
+    console.log("personal info:", personalInfo, "id:", id);
+  }
+
   render() {
     const {
       logged_in,
@@ -43,39 +46,64 @@ class App extends Component {
         <Header />
 
         <Switch>
-          { /* Unprotected Routes */}
+          {/* Unprotected Routes */}
 
-          { /*Home*/}
+          {/*Home*/}
           <Route exact path="/" component={Home} />
 
-          {/*Only Index We'll Have is Emergency Contact*/}
+          {/*Of our pages, EmergencyContactsEdit is a form to edit
+          UserProfile is a show page
+          UserProfileEdit is a form to edit*/}
 
-          { /*Show for Public Profile is difficult to code right now because we need to understand our routes better, so I'll Work on Emergency Contacts First*/}
-          {/*<Route
-            path="/profileindex/:id"
-            render={(props) => <UserProfile personalInfo={this.state.personalInfo} />}
-          />*/}
+          {/*UserProfile, a public unprotected show page*/}
+          <Route
+            path="/usershow/:id"
+            render={(props) => {
+              let localid = props.match.params.id
+              let userInfo = this.state.personalInfo.find(user => user.id === parseInt(localid))
+              return (
+                <UserProfile userInfo={userInfo} />
+              )
+            }}
+          />
 
           {/*Not Found*/}
           <Route component={NotFound} />
 
-          { /* Protected Routes */}
+          {/* Protected Routes */}
+          <Home />
+          <LearnMore />
+          {/*UserProfile, the private protected show page that allows you to edit your page*/}
+          {/*<Route
+            path="/usershow/:id"
+            render={(props) => {
+              let localid = props.match.params.id
+              let userInfo = this.state.personalInfo.find(user => user.id === parseInt(localid))
+              return (
+                <UserProfile userInfo={userInfo} logged_in={logged_in} />
+              )
+            }}
+          />*/}
+
+          {logged_in &&
+            <Route
+              path="/userprofileedit/:id"
+              render={(props) => {
+                let localid = props.match.params.id
+                let userInfo = this.state.personalInfo.find(user => user.id === parseInt(localid))
+                return (
+                  <UserProfileEdit
+                    updatePersonalInfo={this.updatePersonalInfo}
+                    current_user={current_user}
+                    userInfo={userInfo}
+                  />
+                )
+              }}
+            />
+          }
+          <Route path="/devteam" component={DevTeam} />
+          <Route path="/faq" component={Faq} />
         </Switch>
-        <Home />
-        <LearnMore />
-        <Route path="/devteam" component={DevTeam} />
-        <Route path="/faq" component={Faq} />
-        <h1> Hello World</h1>
-        {logged_in &&
-          <div>
-            <a href={sign_out_route}>Sign Out</a>
-          </div>
-        }
-        {!logged_in &&
-          <div>
-            <a href={sign_in_route}>Sign In</a>
-          </div>
-        }
         <Footer
           logged_in={logged_in}
           sign_in_route={sign_in_route}
