@@ -1,13 +1,13 @@
-import React, { Component } from "react"
+import React, { Component } from 'react'
 
 
 
-class Faq extends React {
+class Faq extends Component {
   render() {
     return (
       <>
-      <h3>
-      This is the FAQ.
+        <h3>
+          This is the FAQ.
       </h3>
       </>
     )

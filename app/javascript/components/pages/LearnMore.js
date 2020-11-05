@@ -1,13 +1,13 @@
-import React, { Component } from "react"
+import React, { Component } from 'react'
 
 
 
-class LearnMore extends React {
+class LearnMore extends Component {
   render() {
     return (
       <>
-      <h3>
-      This is the LearnMore.
+        <h3>
+          This is the LearnMore.
       </h3>
       </>
     )
