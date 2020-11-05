@@ -46,10 +46,7 @@ class App extends Component {
         <Header />
 
         <Switch>
-          {/* Unprotected Routes */}
-
-          {/*Home*/}
-          <Route exact path="/" component={Home} />
+          
 
           {/*Of our pages, EmergencyContactsEdit is a form to edit
           UserProfile is a show page
@@ -67,12 +64,8 @@ class App extends Component {
             }}
           />
 
-          {/*Not Found*/}
-          <Route component={NotFound} />
-
           {/* Protected Routes */}
-          <Home />
-          <LearnMore />
+
           {/*UserProfile, the private protected show page that allows you to edit your page*/}
           {/*<Route
             path="/usershow/:id"
@@ -103,6 +96,13 @@ class App extends Component {
           }
           <Route path="/devteam" component={DevTeam} />
           <Route path="/faq" component={Faq} />
+          <Route path="/learnmore" component={LearnMore} />
+          {/* Unprotected Routes */}
+
+          {/*Home*/}
+          <Route exact path="/" component={Home} />
+          {/*Not Found*/}
+          <Route component={NotFound} />
         </Switch>
         <Footer
           logged_in={logged_in}
