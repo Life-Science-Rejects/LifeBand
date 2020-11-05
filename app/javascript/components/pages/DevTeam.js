@@ -1,13 +1,13 @@
-import React, { Component } from "react"
+import React, { Component } from 'react'
 
 
 
-class DevTeam extends React {
+class DevTeam extends Component {
   render() {
     return (
       <>
-      <h3>
-      This is the DevTeam.
+        <h3>
+          This is the DevTeam.
       </h3>
       </>
     )
