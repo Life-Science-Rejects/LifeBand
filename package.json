@@ -17,6 +17,15 @@
     "reactstrap": "^8.7.1",
     "turbolinks": "^5.2.0"
   },
+  "scripts": {
+    "test": "jest"
+  },
+  "jest": {
+  "testPathIgnorePatterns": [
+    "/node_modules/",
+    "<rootDir>/config/webpack/test.js"
+      ]
+  },
   "version": "0.1.0",
   "devDependencies": {
     "enzyme": "^3.11.0",
