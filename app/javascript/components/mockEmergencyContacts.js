@@ -1,4 +1,4 @@
-let mockEmergencyContact = [
+let mockEmergencyContacts = [
     {
         id: 1,
         full_name: "Naruto Uzumaki",
@@ -28,3 +28,5 @@ let mockEmergencyContact = [
         user_id: 2
     }
 ]
+
+export default mockEmergencyContacts

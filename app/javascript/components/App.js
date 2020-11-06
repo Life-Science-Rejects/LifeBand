@@ -7,17 +7,19 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 
 import DevTeam from './pages/DevTeam'
-import EmergencyContacts from './components/EmergencyContacts'
+import EmergencyContactsIndex from './components/EmergencyContactsIndex'
 import Faq from './pages/Faq'
 import Home from './pages/Home'
 import LearnMore from './pages/LearnMore'
 import NotFound from './pages/NotFound'
 import EmergencyContactsEdit from './pages/EmergencyContactsEdit'
+import EmergencyContactsNew from './pages/EmergencyContactsNew'
+import UserProfileNew from './pages/UserProfileNew'
 import UserProfileEdit from './pages/UserProfileEdit'
 import UserProfile from './pages/UserProfile'
 
 import mockPersonalInfo from './mockPersonalInfo.js'
-import mockEmergencyContact from './mockEmergencyContact.js'
+import mockEmergencyContacts from './mockEmergencyContacts.js'
 
 
 class App extends Component {
@@ -25,12 +27,26 @@ class App extends Component {
     super(props)
     this.state = {
       personalInfo: mockPersonalInfo,
-      emergencyContact: mockEmergencyContact
+      emergencyContacts: mockEmergencyContacts
     }
+  }
+
+  createNewUser = (newUser) => {
+    console.log(newUser);
   }
 
   updatePersonalInfo = (personalInfo, id) => {
     console.log("personal info:", personalInfo, "id:", id);
+  }
+
+
+  createNewContact = (newContact) => {
+    console.log(newContact);
+  }
+
+
+  updateContactInfo = (contact, id) => {
+    console.log("contact info:", contact, "id:", id);
   }
 
   render() {
@@ -46,7 +62,7 @@ class App extends Component {
         <Header />
 
         <Switch>
-          
+
 
           {/*Of our pages, EmergencyContactsEdit is a form to edit
           UserProfile is a show page
@@ -58,8 +74,12 @@ class App extends Component {
             render={(props) => {
               let localid = props.match.params.id
               let userInfo = this.state.personalInfo.find(user => user.id === parseInt(localid))
+              let contactInfo = this.state.emergencyContacts.filter(contact => contact.user_id === parseInt(localid))
               return (
-                <UserProfile userInfo={userInfo} />
+                <>
+                  <UserProfile userInfo={userInfo} />
+                  <EmergencyContactsIndex emergencyContacts={this.state.emergencyContacts} contactInfo={contactInfo} />
+                </>
               )
             }}
           />
@@ -80,6 +100,23 @@ class App extends Component {
 
           {logged_in &&
             <Route
+              path="/userprofilenew"
+              render={(props) => {
+                let localid = props.match.params.id
+                let userInfo = this.state.personalInfo.find(user => user.id === parseInt(localid))
+                return (
+                  <UserProfileNew
+                    createNewUser={this.createNewUser}
+                    current_user={current_user}
+                    userInfo={userInfo}
+                  />
+                )
+              }}
+            />
+          }
+
+          {logged_in &&
+            <Route
               path="/userprofileedit/:id"
               render={(props) => {
                 let localid = props.match.params.id
@@ -94,6 +131,42 @@ class App extends Component {
               }}
             />
           }
+
+          {logged_in &&
+            <Route
+              path="/contactinfonew"
+              render={(props) => {
+                let localid = props.match.params.id
+                let userInfo = this.state.personalInfo.find(user => user.id === parseInt(localid))
+                return (
+                  <EmergencyContactsNew
+                    createNewContact={this.createNewContact}
+                    current_user={current_user}
+                    userInfo={userInfo}
+                  />
+                )
+              }}
+            />
+          }
+
+          {logged_in &&
+            <Route
+              path="/contactinfoedit/:id"
+              render={(props) => {
+                let localid = props.match.params.id
+                let userInfo = this.state.personalInfo.find(user => user.id === parseInt(localid))
+                return (
+                  <EmergencyContactsEdit
+                    updateContactInfo={this.updateContactInfo}
+                    current_user={current_user}
+                    userInfo={userInfo}
+                  />
+                )
+              }}
+            />
+          }
+
+
           <Route path="/devteam" component={DevTeam} />
           <Route path="/faq" component={Faq} />
           <Route path="/learnmore" component={LearnMore} />
