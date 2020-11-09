@@ -155,7 +155,8 @@ class App extends Component {
               render={(props) => {
                 let localid = props.match.params.id
                 let userInfo = this.state.personalInfo.find(user => user.id === parseInt(localid))
-                let contactInfo = this.state.emergencyContacts.filter(contact => contact.user_id === parseInt(localid))
+                let contactInfo = this.state.emergencyContacts.find(contact => contact.id === parseInt(localid))
+                console.log("contact info:", contactInfo, "localid:", localid);
                 return (
                   <EmergencyContactsEdit
                     updateContactInfo={this.updateContactInfo}
