@@ -1,1 +1,6 @@
-@import "bootstrap"
+@import "bootstrap";
+
+.nav {
+    display: flex;
+    justify-content: space-around;
+}
