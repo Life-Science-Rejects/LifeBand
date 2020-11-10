@@ -49,6 +49,10 @@ class App extends Component {
     console.log("contact info:", contact, "id:", id);
   }
 
+  deleteContactInfo = (id) => {
+    console.log("id:", id);
+  }
+
   render() {
     const {
       logged_in,
@@ -78,7 +82,7 @@ class App extends Component {
               return (
                 <>
                   <UserProfile userInfo={userInfo} />
-                  <EmergencyContactsIndex emergencyContacts={this.state.emergencyContacts} contactInfo={contactInfo} />
+                  <EmergencyContactsIndex emergencyContacts={this.state.emergencyContacts} contactInfo={contactInfo} deleteContactInfo={this.deleteContactInfo} />
                 </>
               )
             }}

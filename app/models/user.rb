@@ -5,5 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :emergency_contacts
-  has_many :personal_infos
+  has_one :personal_infos
 end

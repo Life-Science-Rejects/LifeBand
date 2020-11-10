@@ -22,9 +22,10 @@ class EmergencyContactsIndex extends Component {
                   <p> {contact.full_name}</p>
                   <p> {contact.relationship}</p>
                   <p> {contact.phone_number}</p>
-                  <Link to={"/contactinfoedit/1"}>
+                  <Link to={`/contactinfoedit/${contact.id}`}>
                     <Button> Edit Contact Info </Button>
                   </Link>
+                  <Button onClick={() => { this.props.deleteContactInfo(contact.id) }}> Delete Emergency Contact</Button>
                 </div>
               )
             })}
