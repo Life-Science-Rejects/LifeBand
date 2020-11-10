@@ -32,7 +32,8 @@ class UserProfile extends Component {
           <p>Dosage: {userInfo.dosage} </p>
 
           <Link to={`/userprofileedit/${userInfo.id}`}>
-            <Button> Edit Info </Button>
+            <Button> Edit Info
+            </Button>
           </Link>
         </div>
 

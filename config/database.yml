@@ -83,4 +83,3 @@ production:
   database: lifeband_production
   username: lifeband
   password: <%= ENV['LIFEBAND_DATABASE_PASSWORD'] %>
-  url: <%= ENV['DATABASE_URL'] %>

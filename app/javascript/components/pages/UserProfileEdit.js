@@ -45,7 +45,7 @@ class UserProfileEdit extends Component {
   handleSubmit = (e) => {
     // keeps react from refreshing the page unnecessarily
     e.preventDefault()
-    this.props.updatePersonalInfo(this.state.form, this.props.userInfo.id)
+    this.props.updateApartment(this.state.form, this.props.apartment.id)
     this.setState({ success: true })
   }
 
@@ -204,7 +204,7 @@ class UserProfileEdit extends Component {
               onClick={this.handleSubmit}> Edit Info
             </Button>
           </Form>
-          {this.state.success && <Redirect to={`/usershow/${this.props.userInfo.id}`} />}
+          {this.state.success && <Redirect to="/usershow/:id" />}
         </div>
       </>
     )
