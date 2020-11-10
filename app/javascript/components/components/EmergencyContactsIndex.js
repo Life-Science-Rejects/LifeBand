@@ -28,6 +28,9 @@ class EmergencyContactsIndex extends Component {
                 </div>
               )
             })}
+          <Link to={"/contactinfonew"}>
+            <Button>Add a New Emergency Contact</Button>
+          </Link>
         </div>
       </>
     )
