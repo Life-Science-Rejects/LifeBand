@@ -1,16 +1,22 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+import { Button } from 'reactstrap'
 //this is the public show page for other users
 //will render emergency contact as a component
 
 
-class UserProfile extends Component {
+class MyProfileIndex extends Component {
   render() {
     const { userInfo } = this.props
+    if (!userInfo) {
+        return (<h3>Error:  </h3>)
+
+    }
     return (
       <>
         <div id="user-profile-body">
           <h3>
-            This is the UserProfile.
+            This is the MyProfileIndex.
           </h3>
           <p>Name: {userInfo.full_name} </p>
           <p>Gender: {userInfo.gender} </p>
@@ -28,6 +34,10 @@ class UserProfile extends Component {
           <p>Date of Diagnosis: {userInfo.diagnosis_date} </p>
           <p>Prescription Medications: {userInfo.medication} </p>
           <p>Dosage: {userInfo.dosage} </p>
+
+          <Link to={`/userprofileedit/${userInfo.id}`}>
+            <Button> Edit Info </Button>
+          </Link>
         </div>
 
 
@@ -36,4 +46,4 @@ class UserProfile extends Component {
   }
 }
 
-export default UserProfile
+export default MyProfileIndex
