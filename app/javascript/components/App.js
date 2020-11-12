@@ -104,8 +104,8 @@ class App extends Component {
                 let userInfo = this.state.personalInfo.find(user => user.id === current_user.id)
                 console.log("User Info: ", userInfo)
                 let contactInfo = this.state.emergencyContacts.filter(contact => contact.user_id === current_user.id)
-                // console.log(this.state.personalInfo)
-                // console.log(current_user.id)
+                console.log(this.state.personalInfo)
+                console.log(current_user.id)
                 return (
                   <div>
                   <MyProfileIndex
