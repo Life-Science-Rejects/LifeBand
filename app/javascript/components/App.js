@@ -17,6 +17,7 @@ import EmergencyContactsNew from './pages/EmergencyContactsNew'
 import UserProfileNew from './pages/UserProfileNew'
 import UserProfileEdit from './pages/UserProfileEdit'
 import UserProfile from './pages/UserProfile'
+import MyProfileIndex from './pages/MyProfileIndex'
 
 import mockPersonalInfo from './mockPersonalInfo.js'
 import mockEmergencyContacts from './mockEmergencyContacts.js'
@@ -26,8 +27,8 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      personalInfo: [],
-      emergencyContacts: []
+      personalInfo: mockPersonalInfo,
+      emergencyContacts: mockEmergencyContacts
     }
   }
 
@@ -63,7 +64,12 @@ class App extends Component {
     } = this.props
     return (
       <Router>
-        <Header />
+        <Header 
+          logged_in={logged_in}
+          sign_in_route={sign_in_route}
+          sign_up_route={sign_up_route}
+          sign_out_route={sign_out_route}
+          current_user={current_user}/>
 
         <Switch>
 
@@ -82,7 +88,7 @@ class App extends Component {
               return (
                 <>
                   <UserProfile userInfo={userInfo} />
-                  <EmergencyContactsIndex emergencyContacts={this.state.emergencyContacts} contactInfo={contactInfo} deleteContactInfo={this.deleteContactInfo} />
+                  <EmergencyContactsIndex emergencyContacts={this.state.emergencyContacts} contactInfo={contactInfo} />
                 </>
               )
             }}
@@ -91,16 +97,29 @@ class App extends Component {
           {/* Protected Routes */}
 
           {/*UserProfile, the private protected show page that allows you to edit your page*/}
-          {/*<Route
-            path="/usershow/:id"
-            render={(props) => {
-              let localid = props.match.params.id
-              let userInfo = this.state.personalInfo.find(user => user.id === parseInt(localid))
-              return (
-                <UserProfile userInfo={userInfo} logged_in={logged_in} />
-              )
-            }}
-          />*/}
+          {logged_in &&
+            <Route
+              path="/myprofileindex"
+              render={(props) => {
+                let userInfo = this.state.personalInfo.find(user => user.id === current_user.id)
+                console.log("User Info: ", userInfo)
+                let contactInfo = this.state.emergencyContacts.filter(contact => contact.user_id === current_user.id)
+                // console.log(this.state.personalInfo)
+                // console.log(current_user.id)
+                return (
+                  <div>
+                  <MyProfileIndex
+                    current_user={current_user}
+                    userInfo={userInfo}
+                  />
+                  <EmergencyContactsIndex emergencyContacts={this.state.emergencyContacts} contactInfo={contactInfo} deleteContactInfo={this.deleteContactInfo} />
+                  </div>
+
+                )
+              }}
+            />
+          }
+
 
           {logged_in &&
             <Route
