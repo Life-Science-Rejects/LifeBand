@@ -19,9 +19,4 @@ RSpec.describe User, type: :model do
     user = User.new(email: "test@test.com", password: "123456", password_confirmation: "123456", date_of_birth: "not a date")
     expect(user).to_not be_valid
   end
-  it "is valid with all fields completed" do
-    user = User.new(email: "test@test.com", password: "123456", password_confirmation: "123456", date_of_birth: "01/02/1994")
-    expect(user).to be_valid
-  end
-
 end
