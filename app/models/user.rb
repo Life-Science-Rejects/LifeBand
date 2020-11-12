@@ -6,4 +6,6 @@ class User < ApplicationRecord
 
   has_many :emergency_contacts
   has_many :personal_infos
+
+  validates :date_of_birth, presence: true
 end
