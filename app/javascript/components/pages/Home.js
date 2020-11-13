@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import lifeband from '../assets/lifeband-home.png'
+import lifeband from '../assets/lifeband-home.jpg'
 
 
 class Home extends Component {
@@ -7,9 +7,9 @@ class Home extends Component {
     return (
       <>
         <h3>
-          This is the Home.
+          This is the LifeBand Home.
         </h3>
-        <img src={lifeband} alt="hiker and foodie illustration" />
+        <img id="home-img" src={lifeband} alt="hiker and foodie illustration" />
       </>
     )
   }

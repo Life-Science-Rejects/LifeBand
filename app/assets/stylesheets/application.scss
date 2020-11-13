@@ -8,11 +8,16 @@ a {
 
 a:hover {
     text-decoration: none;
-    color: #478f92;
+    color: #000;
 }
 
 .nav {
     padding: 15px 0px;
+}
+
+#home-img {
+    width: 100%;
+    height: auto;
 }
 
 // --- PROFILE VIEW --- //
@@ -26,8 +31,9 @@ a:hover {
     width: 400px;
 }
 
-img {
-    width: 100%;
+.avatar {
+    width: 50%;
+    height: auto;
 }
 
 // --- PROFILE EDIT --- //

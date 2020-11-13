@@ -161,11 +161,10 @@ class App extends Component {
           sign_in_route={sign_in_route}
           sign_up_route={sign_up_route}
           sign_out_route={sign_out_route}
-          current_user={current_user}/>
+          current_user={current_user}
+        />
 
         <Switch>
-
-
           {/*Of our pages, EmergencyContactsEdit is a form to edit
           UserProfile is a show page
           UserProfileEdit is a form to edit*/}
@@ -178,10 +177,13 @@ class App extends Component {
               let userInfo = this.state.personalInfo.find(user => user.id === parseInt(localid))
               let contactInfo = this.state.emergencyContacts.filter(contact => contact.user_id === parseInt(localid))
               return (
-                <>
+                <div id="profile-contents">
                   <UserProfile userInfo={userInfo} />
-                  <EmergencyContactsIndex emergencyContacts={this.state.emergencyContacts} contactInfo={contactInfo} />
-                </>
+                  <EmergencyContactsIndex
+                    emergencyContacts={this.state.emergencyContacts}
+                    contactInfo={contactInfo}
+                  />
+                </div>
               )
             }}
           />
@@ -196,19 +198,22 @@ class App extends Component {
                 let userInfo = this.state.personalInfo.find(user => user.id === current_user.id)
                 let contactInfo = this.state.emergencyContacts.filter(contact => contact.user_id === current_user.id)
                 return (
-                  <div>
-                  <MyProfileIndex
-                    current_user={current_user}
-                    userInfo={userInfo}
-                  />
-                  <EmergencyContactsIndex emergencyContacts={this.state.emergencyContacts} contactInfo={contactInfo} deleteContactInfo={this.deleteContactInfo} />
+                  <div id="profile-contents">
+                    <MyProfileIndex
+                      current_user={current_user}
+                      userInfo={userInfo}
+                    />
+                    <EmergencyContactsIndex
+                      emergencyContacts={this.state.emergencyContacts}
+                      contactInfo={contactInfo}
+                      deleteContactInfo={this.deleteContactInfo}
+                    />
                   </div>
 
                 )
               }}
             />
           }
-
 
           {logged_in &&
             <Route
@@ -281,17 +286,14 @@ class App extends Component {
             />
           }
 
-
+          {/* Unprotected Routes */}
           <Route path="/devteam" component={DevTeam} />
           <Route path="/faq" component={Faq} />
           <Route path="/learnmore" component={LearnMore} />
-          {/* Unprotected Routes */}
-
-          {/*Home*/}
           <Route exact path="/" component={Home} />
-          {/*Not Found*/}
           <Route component={NotFound} />
         </Switch>
+        
         <Footer
           logged_in={logged_in}
           sign_in_route={sign_in_route}

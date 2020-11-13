@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import userIcon from '../assets/user-icon.jpg'
 //this is the public show page for other users
 //will render emergency contact as a component
 
@@ -8,9 +9,8 @@ class UserProfile extends Component {
     return (
       <>
         <div id="user-profile-body">
-          <h3>
-            This is the UserProfile.
-          </h3>
+          <h3>This is the UserProfile.</h3>
+          <img className="avatar" src={userIcon} alt="generic illustrated user avatar" />
           <p>Name: {userInfo.full_name} </p>
           <p>Gender: {userInfo.gender} </p>
           <p>Phone Number: {userInfo.phone_number} </p>
