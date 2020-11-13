@@ -9,7 +9,6 @@ import {
 import { Redirect } from 'react-router-dom'
 //this will remain a page. upon new and save, user will be taken back to their my user profile index
 
-
 class EmergencyContactsNew extends Component {
     constructor(props) {
         super(props)
@@ -71,6 +70,7 @@ class EmergencyContactsNew extends Component {
                             />
                         </FormGroup>
                         <Button
+                            className="submit-btn"
                             name="submit"
                             onClick={this.handleSubmit}> Add Emergency Contact
                         </Button>

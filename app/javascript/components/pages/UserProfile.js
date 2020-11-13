@@ -1,17 +1,20 @@
 import React, { Component } from 'react'
+import userIcon from '../assets/user-icon.jpg'
 //this is the public show page for other users
 //will render emergency contact as a component
-
 
 class UserProfile extends Component {
   render() {
     const { userInfo } = this.props
+    if (!userInfo) {
+      return (<h3>Error</h3>)
+    }
+
     return (
       <>
-        <div id="user-profile-body">
-          <h3>
-            This is the UserProfile.
-          </h3>
+        <div className="user-profile-body">
+          <h3>Welcome back {userInfo.full_name}!</h3>
+          <img className="avatar" src={userIcon} alt="generic illustrated user avatar" />
           <p>Name: {userInfo.full_name} </p>
           <p>Gender: {userInfo.gender} </p>
           <p>Phone Number: {userInfo.phone_number} </p>
@@ -29,8 +32,6 @@ class UserProfile extends Component {
           <p>Prescription Medications: {userInfo.medication} </p>
           <p>Dosage: {userInfo.dosage} </p>
         </div>
-
-
       </>
     )
   }

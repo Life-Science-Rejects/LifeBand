@@ -20,7 +20,6 @@ end
 
 personal_infos = [
     {
-        id: 1,
         full_name: "Bobby Hill",
         gender: "Male",
         phone_number: "555-678-9012",
@@ -40,7 +39,6 @@ personal_infos = [
         user_id: User.first.id
     },
     {
-        id: 2,
         full_name: "Jane Doe",
         gender: "Female",
         phone_number: "555-111-2233",
@@ -68,28 +66,24 @@ end
 
 emergency_contacts = [
     {
-        id: 1,
         full_name: "Naruto Uzumaki",
         relationship: "hokage",
         phone_number: "1234567890",
         user_id: 1
     },
     {
-        id: 2,
         full_name: "Gaara",
         relationship: "kazakage",
         phone_number: "1234567890",
         user_id: 1
     },
     {
-        id: 3,
         full_name: "Kakashi Hatake",
         relationship: "sensei",
         phone_number: "1234567890",
         user_id: 2
     },
     {
-        id: 4,
         full_name: "Shikamaru Nara",
         relationship: "proctor",
         phone_number: "1234567890",

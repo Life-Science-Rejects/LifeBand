@@ -10,27 +10,25 @@ class EmergencyContactsIndex extends Component {
   render() {
     return (
       <>
-        <h3>
-          This all of the EmergencyContactsIndex for this User.
-        </h3>
-        <div id="index-body">
+        <div className="index-body">
+          <h3>Emergency Contacts</h3>
           {this.props.contactInfo &&
 
             this.props.contactInfo.map((contact, index) => {
               return (
-                <div key={index}>
+                <div className="e-contact" key={index}>
                   <p> {contact.full_name}</p>
                   <p> {contact.relationship}</p>
                   <p> {contact.phone_number}</p>
                   <Link to={`/contactinfoedit/${contact.id}`}>
-                    <Button> Edit Contact Info </Button>
+                    <Button className="edit-btn"> Edit Contact Info </Button>
                   </Link>
-                  <Button onClick={() => { this.props.deleteContactInfo(contact.id) }}> Delete Emergency Contact</Button>
+                  <Button className="delete-btn" onClick={() => { this.props.deleteContactInfo(contact.id) }}> Delete Emergency Contact</Button>
                 </div>
               )
             })}
           <Link to={"/contactinfonew"}>
-            <Button>Add a New Emergency Contact</Button>
+            <Button className="add-btn">Add a New Emergency Contact</Button>
           </Link>
         </div>
       </>

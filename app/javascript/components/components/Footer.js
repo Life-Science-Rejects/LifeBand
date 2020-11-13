@@ -11,30 +11,41 @@ class Footer extends Component {
     } = this.props
     return (
       <>
-        <div id="footer">
-          <Nav>
-            <NavItem>
-              <a href="/devteam">Learn About The Devs</a>
-            </NavItem>
-            <NavItem>
-              <a href="/faq">FAQ</a>
-            </NavItem>
-
+        <div>
+          <Nav className="footer">
             {logged_in &&
-              <NavItem>
-                <a href={sign_out_route}>Sign Out</a>
-              </NavItem>
+              <div>
+                <h6>Account</h6>
+                  <NavItem>
+                    <a href={sign_out_route}>Sign Out</a>
+                  </NavItem>
+              </div>
             }
             {!logged_in &&
               <>
-                <NavItem>
-                  <a href={sign_in_route}>Sign In</a>
-                </NavItem>
-                <NavItem>
-                  <a href={sign_up_route}>Sign Up</a>
-                </NavItem>
+                <div>
+                  <h6>Account</h6>
+                  <NavItem>
+                    <a href={sign_in_route}>Sign In</a>
+                  </NavItem>
+                  <NavItem>
+                    <a href={sign_up_route}>Sign Up</a>
+                  </NavItem>
+                </div>
               </>
             }
+            <div>
+              <h6>About Us</h6>
+              <NavItem>
+                <a href="/devteam">Meet The Devs</a>
+              </NavItem>
+            </div>
+            <div>
+              <h6>Support</h6>
+              <NavItem>
+                <a href="/faq">FAQ</a>
+              </NavItem>
+            </div>
           </Nav>
         </div>
       </>
