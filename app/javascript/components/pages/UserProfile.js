@@ -9,11 +9,11 @@ class UserProfile extends Component {
     if (!userInfo) {
       return (<h3>Error</h3>)
     }
-    
+
     return (
       <>
         <div id="user-profile-body">
-          <h3>This is the UserProfile.</h3>
+          <h3>Welcome back {userInfo.full_name}!</h3>
           <img className="avatar" src={userIcon} alt="generic illustrated user avatar" />
           <p>Name: {userInfo.full_name} </p>
           <p>Gender: {userInfo.gender} </p>
