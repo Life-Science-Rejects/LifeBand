@@ -6,6 +6,10 @@ import userIcon from '../assets/user-icon.jpg'
 class UserProfile extends Component {
   render() {
     const { userInfo } = this.props
+    if (!userInfo) {
+      return (<h3>Error</h3>)
+    }
+    
     return (
       <>
         <div id="user-profile-body">
