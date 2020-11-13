@@ -17,7 +17,8 @@ class EmergencyContactsNew extends Component {
             form: {
                 full_name: "",
                 relationship: "",
-                phone_number: ""
+                phone_number: "",
+                user_id: this.props.current_user.id
             },
             success: false
         }
@@ -74,7 +75,7 @@ class EmergencyContactsNew extends Component {
                             onClick={this.handleSubmit}> Add Emergency Contact
                         </Button>
                     </Form>
-                    {this.state.success && <Redirect to={`/usershow/${this.props.current_user.id}`} />}
+                    {this.state.success && <Redirect to={"/myprofileindex"} />}
                 </div>
             </>
         )

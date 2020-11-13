@@ -204,7 +204,7 @@ class UserProfileEdit extends Component {
               onClick={this.handleSubmit}> Edit Info
             </Button>
           </Form>
-          {this.state.success && <Redirect to={`/usershow/${this.props.userInfo.id}`} />}
+          {this.state.success && <Redirect to={"/myprofileindex"} />}
         </div>
       </>
     )

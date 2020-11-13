@@ -45,7 +45,7 @@ class UserProfileNew extends Component {
     handleSubmit = (e) => {
         // keeps react from refreshing the page unnecessarily
         e.preventDefault()
-        this.props.createNewUser(this.state.form)
+        this.props.createNewInfo(this.state.form)
         this.setState({ success: true })
     }
 
@@ -204,7 +204,7 @@ class UserProfileNew extends Component {
                             onClick={this.handleSubmit}> Add Info
                         </Button>
                     </Form>
-                    {this.state.success && <Redirect to={`/usershow/${this.props.current_user.id}`} />}
+                    {this.state.success && <Redirect to={"/myprofileindex"} />}
                 </div>
             </>
         )
