@@ -24,13 +24,15 @@ class App extends Component {
     super(props)
     this.state = {
       personalInfo: [],
-      emergencyContacts: []
+      emergencyContacts: [],
+      medicalConditions: []
     }
   }
 
   componentDidMount() {
     this.getPersonalInfo()
     this.getEmergencyContacts()
+    this.getMedicalCondition("amnesia")
   }
 
   getPersonalInfo = () => {
@@ -56,6 +58,23 @@ class App extends Component {
       })
       .catch(errors => {
         console.log("e-contacts index errors: ", errors)
+      })
+  }
+
+  getMedicalCondition = (condition) => {
+    fetch(`https://clinicaltables.nlm.nih.gov/api/conditions/v3/search?terms=${condition}&sf=consumer_name&ef=info_link_data`)
+      .then(response => {
+        if (response.status === 200) {
+          return response.json()
+        }
+      })
+      .then(payload => {
+        const term = payload[3][0][0]
+        const url = payload[2]["info_link_data"][0][0][0]
+        this.setState({ medicalConditions: this.state.medicalConditions.concat([{ term, url }]) }, () => console.log(this.state.medicalConditions))
+      })
+      .catch(error => {
+        console.log(error)
       })
   }
 
@@ -145,7 +164,7 @@ class App extends Component {
         console.log("delete e-contact info errors:", errors);
       })
   }
-  
+
   render() {
     const {
       logged_in,
@@ -154,9 +173,12 @@ class App extends Component {
       sign_out_route,
       current_user
     } = this.props
+
+    //console.log(this.getMedicalCondition());
+
     return (
       <Router>
-        <Header 
+        <Header
           logged_in={logged_in}
           sign_in_route={sign_in_route}
           sign_up_route={sign_up_route}
@@ -293,7 +315,7 @@ class App extends Component {
           <Route exact path="/" component={Home} />
           <Route component={NotFound} />
         </Switch>
-        
+
         <Footer
           logged_in={logged_in}
           sign_in_route={sign_in_route}
