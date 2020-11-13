@@ -19,41 +19,133 @@ import UserProfileEdit from './pages/UserProfileEdit'
 import UserProfile from './pages/UserProfile'
 import MyProfileIndex from './pages/MyProfileIndex'
 
-import mockPersonalInfo from './mockPersonalInfo.js'
-import mockEmergencyContacts from './mockEmergencyContacts.js'
-
-
 class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      personalInfo: mockPersonalInfo,
-      emergencyContacts: mockEmergencyContacts
+      personalInfo: [],
+      emergencyContacts: []
     }
   }
 
-  createNewUser = (newUser) => {
-    console.log(newUser);
+  componentDidMount() {
+    this.getPersonalInfo()
+    this.getEmergencyContacts()
+  }
+
+  getPersonalInfo = () => {
+    fetch("/personal_infos")
+      .then(response => {
+        return response.json()
+      })
+      .then(payload => {
+        this.setState({ personalInfo: payload })
+      })
+      .catch(errors => {
+        console.log("personal info errors: ", errors)
+      })
+  }
+
+  getEmergencyContacts = () => {
+    fetch("/emergency_contacts")
+      .then(response => {
+        return response.json()
+      })
+      .then(payload => {
+        this.setState({ emergencyContacts: payload })
+      })
+      .catch(errors => {
+        console.log("e-contacts index errors: ", errors)
+      })
+  }
+
+  createNewInfo = (newInfo) => {
+    return fetch("/personal_infos", {
+      body: JSON.stringify(newInfo),
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "POST",
+    })
+      .then(response => {
+        this.getPersonalInfo()
+      })
+      .catch(errors => {
+        console.log("create personal info errors:", errors);
+      })
+  }
+
+  createNewContact = (newContact) => {
+    return fetch("/emergency_contacts", {
+      body: JSON.stringify(newContact),
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "POST",
+    })
+      .then(response => {
+        this.getEmergencyContacts()
+      })
+      .catch(errors => {
+        console.log("create e-contact info errors:", errors);
+      })
   }
 
   updatePersonalInfo = (personalInfo, id) => {
-    console.log("personal info:", personalInfo, "id:", id);
+    return fetch(`/personal_infos/${id}`, {
+      body: JSON.stringify(personalInfo),
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "PATCH",
+    })
+      .then(response => {
+        if (response.status === 200) {
+          this.getPersonalInfo()
+        }
+        return response
+      })
+      .catch(errors => {
+        console.log("edit personal info errors:", errors);
+      })
   }
-
-
-  createNewContact = (newContact) => {
-    console.log(newContact);
-  }
-
 
   updateContactInfo = (contact, id) => {
-    console.log("contact info:", contact, "id:", id);
+    return fetch(`/emergency_contacts/${id}`, {
+      body: JSON.stringify(contact),
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "PATCH",
+    })
+      .then(response => {
+        if (response.status === 200) {
+          this.getEmergencyContacts()
+        }
+        return response
+      })
+      .catch(errors => {
+        console.log("edit e-contact info errors:", errors);
+      })
   }
 
   deleteContactInfo = (id) => {
-    console.log("id:", id);
+    return fetch(`/emergency_contacts/${id}`, {
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "DELETE",
+    })
+      .then(response => {
+        alert("Are you sure you want to remove this emergency contact?🥺")
+        this.getEmergencyContacts()
+        return response
+      })
+      .catch(errors => {
+        console.log("delete e-contact info errors:", errors);
+      })
   }
-
+  
   render() {
     const {
       logged_in,
@@ -102,10 +194,7 @@ class App extends Component {
               path="/myprofileindex"
               render={(props) => {
                 let userInfo = this.state.personalInfo.find(user => user.id === current_user.id)
-                console.log("User Info: ", userInfo)
                 let contactInfo = this.state.emergencyContacts.filter(contact => contact.user_id === current_user.id)
-                console.log(this.state.personalInfo)
-                console.log(current_user.id)
                 return (
                   <div>
                   <MyProfileIndex
@@ -129,7 +218,7 @@ class App extends Component {
                 let userInfo = this.state.personalInfo.find(user => user.id === parseInt(localid))
                 return (
                   <UserProfileNew
-                    createNewUser={this.createNewUser}
+                    createNewInfo={this.createNewInfo}
                     current_user={current_user}
                     userInfo={userInfo}
                   />

@@ -17,7 +17,8 @@ class EmergencyContactsEdit extends Component {
       form: {
         full_name: this.props.contactInfo.full_name,
         relationship: this.props.contactInfo.relationship,
-        phone_number: this.props.contactInfo.phone_number
+        phone_number: this.props.contactInfo.phone_number,
+        user_id: this.props.current_user.id
       },
       success: false
     }
@@ -74,7 +75,7 @@ class EmergencyContactsEdit extends Component {
               onClick={this.handleSubmit}> Edit Emergency Contact
             </Button>
           </Form>
-          {this.state.success && <Redirect to={`/usershow/${this.props.current_user.id}`} />}
+          {this.state.success && <Redirect to={"/myprofileindex"} />}
         </div>
       </>
     )
