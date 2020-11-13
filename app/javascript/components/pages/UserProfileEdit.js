@@ -9,7 +9,6 @@ import {
 import { Redirect } from 'react-router-dom'
 //this will remain a page. upon edit and save, user will be taken back to their my user profile index
 
-
 class UserProfileEdit extends Component {
   constructor(props) {
     super(props)
@@ -200,6 +199,7 @@ class UserProfileEdit extends Component {
               />
             </FormGroup>
             <Button
+              className="submit-btn"
               name="submit"
               onClick={this.handleSubmit}> Edit Info
             </Button>

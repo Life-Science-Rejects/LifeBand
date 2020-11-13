@@ -200,6 +200,7 @@ class UserProfileNew extends Component {
                             />
                         </FormGroup>
                         <Button
+                            className="submit-btn"
                             name="submit"
                             onClick={this.handleSubmit}> Add Info
                         </Button>

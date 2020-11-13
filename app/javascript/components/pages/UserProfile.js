@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 //this is the public show page for other users
 //will render emergency contact as a component
 
-
 class UserProfile extends Component {
   render() {
     const { userInfo } = this.props
@@ -29,8 +28,6 @@ class UserProfile extends Component {
           <p>Prescription Medications: {userInfo.medication} </p>
           <p>Dosage: {userInfo.dosage} </p>
         </div>
-
-
       </>
     )
   }
