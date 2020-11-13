@@ -19,10 +19,6 @@ import UserProfileEdit from './pages/UserProfileEdit'
 import UserProfile from './pages/UserProfile'
 import MyProfileIndex from './pages/MyProfileIndex'
 
-// import mockPersonalInfo from './mockPersonalInfo.js'
-// import mockEmergencyContacts from './mockEmergencyContacts.js'
-
-
 class App extends Component {
   constructor(props) {
     super(props)
@@ -80,7 +76,6 @@ class App extends Component {
   }
 
   createNewContact = (newContact) => {
-    console.log("create new contact error:", newContact);
     return fetch("/emergency_contacts", {
       body: JSON.stringify(newContact),
       headers: {
@@ -199,10 +194,7 @@ class App extends Component {
               path="/myprofileindex"
               render={(props) => {
                 let userInfo = this.state.personalInfo.find(user => user.id === current_user.id)
-                console.log("User Info: ", userInfo)
                 let contactInfo = this.state.emergencyContacts.filter(contact => contact.user_id === current_user.id)
-                console.log(this.state.personalInfo)
-                console.log(current_user.id)
                 return (
                   <div>
                   <MyProfileIndex
