@@ -9,7 +9,7 @@ class Home extends Component {
         <h3>
           This is the LifeBand Home.
         </h3>
-        <img id="home-img" src={lifeband} alt="hiker and foodie illustration" />
+        <img className="home-img" src={lifeband} alt="hiker and foodie illustration" />
       </>
     )
   }

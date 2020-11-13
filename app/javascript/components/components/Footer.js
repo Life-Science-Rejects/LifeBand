@@ -12,7 +12,7 @@ class Footer extends Component {
     return (
       <>
         <div>
-          <Nav id="footer">
+          <Nav className="footer">
             {logged_in &&
               <div>
                 <h6>Account</h6>

@@ -12,7 +12,7 @@ class UserProfile extends Component {
 
     return (
       <>
-        <div id="user-profile-body">
+        <div className="user-profile-body">
           <h3>Welcome back {userInfo.full_name}!</h3>
           <img className="avatar" src={userIcon} alt="generic illustrated user avatar" />
           <p>Name: {userInfo.full_name} </p>

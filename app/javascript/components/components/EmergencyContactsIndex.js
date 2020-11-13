@@ -10,7 +10,7 @@ class EmergencyContactsIndex extends Component {
   render() {
     return (
       <>
-        <div id="index-body">
+        <div className="index-body">
           <h3>Emergency Contacts</h3>
           {this.props.contactInfo &&
 

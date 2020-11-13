@@ -18,17 +18,17 @@ h3 {
     padding: 15px 0px;
 }
 
-#home-img {
+.home-img {
     width: 100%;
     height: auto;
 }
 
 // --- PROFILE VIEW --- //
-#profile-contents {
+.profile-contents {
     display: flex;
     flex-direction: wrap;
 }
-#user-profile-body {
+.user-profile-body {
     text-align: center;
     border: 1px solid #478f92;
     margin: 15px 30px;
@@ -50,7 +50,7 @@ h3 {
 
 
 // --- EMERGENCY CONTACT --- //
-#index-body {
+.index-body {
     width: 300px;
     border: 2px solid #92477d;
     margin: 15px 30px;
@@ -88,7 +88,7 @@ h3 {
 
 
 // --- HEADER --- //
-#header {
+.header {
     display: flex;
     justify-content: flex-end;
     background-color: #65c8d0;
@@ -96,7 +96,7 @@ h3 {
 }
 
 // --- FOOTER --- //
-#footer {
+.footer {
     display: flex;
     justify-content: flex-start;
     background-color: #478f92;

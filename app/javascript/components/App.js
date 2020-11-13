@@ -177,7 +177,7 @@ class App extends Component {
               let userInfo = this.state.personalInfo.find(user => user.id === parseInt(localid))
               let contactInfo = this.state.emergencyContacts.filter(contact => contact.user_id === parseInt(localid))
               return (
-                <div id="profile-contents">
+                <div className="profile-contents">
                   <UserProfile userInfo={userInfo} />
                   <EmergencyContactsIndex
                     emergencyContacts={this.state.emergencyContacts}
@@ -198,7 +198,7 @@ class App extends Component {
                 let userInfo = this.state.personalInfo.find(user => user.id === current_user.id)
                 let contactInfo = this.state.emergencyContacts.filter(contact => contact.user_id === current_user.id)
                 return (
-                  <div id="profile-contents">
+                  <div className="profile-contents">
                     <MyProfileIndex
                       current_user={current_user}
                       userInfo={userInfo}
