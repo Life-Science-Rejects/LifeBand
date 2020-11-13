@@ -1,1 +1,111 @@
-@import "bootstrap"
+@import "bootstrap";
+
+// --- BODY --- //
+a {
+    color: #fff;
+    margin: 25px;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #000;
+}
+
+h3 {
+    text-align: center;
+}
+.nav {
+    padding: 15px 0px;
+}
+
+.home-img {
+    width: 100%;
+    height: auto;
+}
+
+// --- PROFILE VIEW --- //
+.profile-contents {
+    display: flex;
+    flex-direction: wrap;
+}
+.user-profile-body {
+    text-align: center;
+    border: 1px solid #478f92;
+    margin: 15px 30px;
+    width: 500px;
+    padding: 15px 10px;
+}
+
+.avatar {
+    width: 200px;
+    height: auto;
+}
+
+// --- PROFILE EDIT --- //
+.submit-btn {
+    background-color: #d0bb65;
+    border: none;
+    border-radius: 20px;
+}
+
+
+// --- EMERGENCY CONTACT --- //
+.index-body {
+    width: 300px;
+    border: 2px solid #92477d;
+    margin: 15px 30px;
+}
+
+.e-contact {
+    border: 2px solid #478f92;
+    padding: 15px;
+    width: 296px;
+}
+
+.edit-btn {
+    background-color: #d065b3;
+    border: none;
+    border-radius: 20px;
+}
+
+.delete-btn {
+    background-color: #d0bb65;
+    border: none;
+    border-radius: 20px;
+}
+
+.add-btn {
+    background-color: #92477d;
+    border: none;
+    border-radius: 20px;
+}
+
+// --- EMERGENCY CONTACT EDIT --- //
+.form-body {
+    padding: 10px;
+    margin: 25px 100px;
+}
+
+
+// --- HEADER --- //
+.header {
+    display: flex;
+    justify-content: flex-end;
+    background-color: #65c8d0;
+    height: 55px;
+}
+
+// --- FOOTER --- //
+.footer {
+    display: flex;
+    justify-content: flex-start;
+    background-color: #478f92;
+    height: 150px;
+}
+
+h6 {
+    font-weight: bold;
+    margin: 0px 25px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+}

@@ -12,7 +12,7 @@ class Header extends Component {
     return (
       <>
         <div>
-          <Nav id="header">
+          <Nav className="header">
             <NavItem>
               <a href="/">Home</a>
             </NavItem>

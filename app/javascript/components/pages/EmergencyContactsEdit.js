@@ -71,6 +71,7 @@ class EmergencyContactsEdit extends Component {
               />
             </FormGroup>
             <Button
+              className="submit-btn"
               name="submit"
               onClick={this.handleSubmit}> Edit Emergency Contact
             </Button>
