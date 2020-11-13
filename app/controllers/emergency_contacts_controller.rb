@@ -6,7 +6,7 @@ class EmergencyContactsController < ApplicationController
 
     def create
         emergency_contact = EmergencyContact.create(emergency_contact_params)
-        if contact.valid?
+        if emergency_contact.valid?
             render json: emergency_contact
         else
             render json: emergency_contact.errors, status: :unprocessable_entity
@@ -34,6 +34,6 @@ class EmergencyContactsController < ApplicationController
 
     private
     def emergency_contact_params
-        params.require(:emergency_contact).permit(:full_name, :relationship, :phone_number)
+        params.require(:emergency_contact).permit(:full_name, :relationship, :phone_number, :user_id)
     end
 end
