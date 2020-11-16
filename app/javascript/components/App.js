@@ -33,9 +33,10 @@ class App extends Component {
   componentDidMount() {
     this.getPersonalInfo()
     this.getEmergencyContacts()
-        // console.log("current user ID:", this.props.current_user.id)
-    this.getQRCode(`https://fathomless-woodland-26064.herokuapp.com/usershow/${this.props.current_user.id}`)
-    // this.getQRCode("https://fathomless-woodland-26064.herokuapp.com/usershow/1")
+
+    if (this.props.current_user) {
+      this.getQRCode(`https://fathomless-woodland-26064.herokuapp.com/usershow/${this.props.current_user.id}`)
+    }
   }
 
   getPersonalInfo = () => {
@@ -66,14 +67,14 @@ class App extends Component {
 
   getQRCode = (url) => {
     fetch(`https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=${url}&choe=UTF-8`)
-    .then(payload => {
-      console.log("payload:", payload)
-      console.log("payload URL:", payload.url)
-      this.setState({qrCode: payload.url})
-    })
-    .catch(errors => {
-      console.log("errors:", errors);
-    })
+      .then(payload => {
+        console.log("payload:", payload)
+        console.log("payload URL:", payload.url)
+        this.setState({ qrCode: payload.url })
+      })
+      .catch(errors => {
+        console.log("errors:", errors);
+      })
   }
 
   createNewInfo = (newInfo) => {
