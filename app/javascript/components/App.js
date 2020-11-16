@@ -25,14 +25,17 @@ class App extends Component {
     this.state = {
       personalInfo: [],
       emergencyContacts: [],
-      medicalConditions: []
+      medicalConditions: [],
+      qrCode: ""
     }
   }
 
   componentDidMount() {
     this.getPersonalInfo()
     this.getEmergencyContacts()
-    this.getMedicalCondition("amnesia")
+        // console.log("current user ID:", this.props.current_user.id)
+    this.getQRCode(`https://fathomless-woodland-26064.herokuapp.com/usershow/${this.props.current_user.id}`)
+    // this.getQRCode("https://fathomless-woodland-26064.herokuapp.com/usershow/1")
   }
 
   getPersonalInfo = () => {
@@ -61,21 +64,16 @@ class App extends Component {
       })
   }
 
-  getMedicalCondition = (condition) => {
-    fetch(`https://clinicaltables.nlm.nih.gov/api/conditions/v3/search?terms=${condition}&sf=consumer_name&ef=info_link_data`)
-      .then(response => {
-        if (response.status === 200) {
-          return response.json()
-        }
-      })
-      .then(payload => {
-        const term = payload[3][0][0]
-        const url = payload[2]["info_link_data"][0][0][0]
-        this.setState({ medicalConditions: this.state.medicalConditions.concat([{ term, url }]) }, () => console.log(this.state.medicalConditions))
-      })
-      .catch(error => {
-        console.log(error)
-      })
+  getQRCode = (url) => {
+    fetch(`https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=${url}&choe=UTF-8`)
+    .then(payload => {
+      console.log("payload:", payload)
+      console.log("payload URL:", payload.url)
+      this.setState({qrCode: payload.url})
+    })
+    .catch(errors => {
+      console.log("errors:", errors);
+    })
   }
 
   createNewInfo = (newInfo) => {
@@ -156,7 +154,7 @@ class App extends Component {
       method: "DELETE",
     })
       .then(response => {
-        alert("Are you sure you want to remove this emergency contact?🥺")
+        alert("Are you sure you want to remove this emergency contact? 🥺")
         this.getEmergencyContacts()
         return response
       })
@@ -224,8 +222,10 @@ class App extends Component {
                     <MyProfileIndex
                       current_user={current_user}
                       userInfo={userInfo}
+                      qrCode={this.state.qrCode}
                     />
                     <EmergencyContactsIndex
+                      userInfo={userInfo}
                       emergencyContacts={this.state.emergencyContacts}
                       contactInfo={contactInfo}
                       deleteContactInfo={this.deleteContactInfo}
