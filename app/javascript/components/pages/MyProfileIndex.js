@@ -33,7 +33,8 @@ class MyProfileIndex extends Component {
           <p>Date of Diagnosis: {userInfo.diagnosis_date} </p>
           <p>Prescription Medications: {userInfo.medication} </p>
           <p>Dosage: {userInfo.dosage} </p>
-
+          <p>Share your Profile:</p>
+          <img src={this.props.qrCode} alt="test" />
           <Link to={`/userprofileedit/${userInfo.id}`}>
             <Button className="edit-btn"> Edit Info </Button>
           </Link>

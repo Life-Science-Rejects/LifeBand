@@ -24,13 +24,19 @@ class App extends Component {
     super(props)
     this.state = {
       personalInfo: [],
-      emergencyContacts: []
+      emergencyContacts: [],
+      medicalConditions: [],
+      qrCode: ""
     }
   }
 
   componentDidMount() {
     this.getPersonalInfo()
     this.getEmergencyContacts()
+
+    if (this.props.current_user) {
+      this.getQRCode(`https://fathomless-woodland-26064.herokuapp.com/usershow/${this.props.current_user.id}`)
+    }
   }
 
   getPersonalInfo = () => {
@@ -56,6 +62,18 @@ class App extends Component {
       })
       .catch(errors => {
         console.log("e-contacts index errors: ", errors)
+      })
+  }
+
+  getQRCode = (url) => {
+    fetch(`https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=${url}&choe=UTF-8`)
+      .then(payload => {
+        console.log("payload:", payload)
+        console.log("payload URL:", payload.url)
+        this.setState({ qrCode: payload.url })
+      })
+      .catch(errors => {
+        console.log("errors:", errors);
       })
   }
 
@@ -137,7 +155,7 @@ class App extends Component {
       method: "DELETE",
     })
       .then(response => {
-        alert("Are you sure you want to remove this emergency contact?🥺")
+        alert("Are you sure you want to remove this emergency contact? 🥺")
         this.getEmergencyContacts()
         return response
       })
@@ -145,7 +163,7 @@ class App extends Component {
         console.log("delete e-contact info errors:", errors);
       })
   }
-  
+
   render() {
     const {
       logged_in,
@@ -154,9 +172,12 @@ class App extends Component {
       sign_out_route,
       current_user
     } = this.props
+
+    //console.log(this.getMedicalCondition());
+
     return (
       <Router>
-        <Header 
+        <Header
           logged_in={logged_in}
           sign_in_route={sign_in_route}
           sign_up_route={sign_up_route}
@@ -202,8 +223,10 @@ class App extends Component {
                     <MyProfileIndex
                       current_user={current_user}
                       userInfo={userInfo}
+                      qrCode={this.state.qrCode}
                     />
                     <EmergencyContactsIndex
+                      userInfo={userInfo}
                       emergencyContacts={this.state.emergencyContacts}
                       contactInfo={contactInfo}
                       deleteContactInfo={this.deleteContactInfo}
@@ -293,7 +316,7 @@ class App extends Component {
           <Route exact path="/" component={Home} />
           <Route component={NotFound} />
         </Switch>
-        
+
         <Footer
           logged_in={logged_in}
           sign_in_route={sign_in_route}

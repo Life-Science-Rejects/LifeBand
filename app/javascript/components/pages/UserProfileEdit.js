@@ -145,7 +145,7 @@ class UserProfileEdit extends Component {
               />
             </FormGroup>
             <FormGroup>
-              <Label>menstruation</Label>
+              <Label>Menstruation</Label>
               <Input
                 type="string"
                 name="menstruation"

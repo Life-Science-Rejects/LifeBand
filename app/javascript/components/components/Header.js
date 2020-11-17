@@ -16,10 +16,13 @@ class Header extends Component {
             <NavItem>
               <a href="/">Home</a>
             </NavItem>
+            <NavItem>
+              <a href="/usershow/1">Demo</a>
+            </NavItem>
             { logged_in &&
               <>
                 <NavItem>
-                  <a href={`/myprofileindex`}>My Profile</a>
+                  <a href={"/myprofileindex"}>My Profile</a>
                 </NavItem>
                 <NavItem>
                   <a href={sign_out_route}>Sign Out</a>
