@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { Button } from 'reactstrap'
+import editIcon from '../assets/edit-icon.svg'
+import trashIcon from '../assets/trash-icon.svg'
 //This is a component now that will be rendereded on the public show for user profile, NOT A PAGE
 //This will be an index
 //Userprofile will have a button that leads to edit form
@@ -29,10 +31,19 @@ class EmergencyContactsIndex extends Component {
                   <p> {contact.phone_number}</p>
                   { this.props.userInfo &&
                     <>
-                      <Link to={`/contactinfoedit/${contact.id}`}>
-                        <Button className="edit-btn"> Edit Contact Info </Button>
+                      <Link to={`contactinfoedit/${contact.id}`}>
+                        <img
+                          src={editIcon}
+                          alt="pencil edit icon"
+                          className="icon"
+                        />
                       </Link>
-                      <Button className="delete-btn" onClick={() => { this.props.deleteContactInfo(contact.id) }}> Delete Emergency Contact</Button>
+                      <img
+                        src={trashIcon}
+                        alt="metal trash can icon"
+                        className="icon"
+                        onClick={() => {this.props.deleteContactInfo(contact.id)}}
+                      />
                     </>
                   }
                 </div>

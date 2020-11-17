@@ -16,13 +16,13 @@ class MyProfileIndex extends Component {
       <>
         <div className="user-profile-body">
           <div className="profile-container-1">
-            <h3>Welcome back {userInfo.full_name}!</h3>
+            <h3>Welcome back <span>{userInfo.full_name}</span>!</h3>
             <img className="avatar" src={userIcon} alt="generic illustrated user avatar" />
-            <p>Name: {userInfo.full_name} </p>
-            <p>Date of Birth: {current_user.date_of_birth}</p>
-            <p>Gender: {userInfo.gender} </p>
-            <p>Phone Number: {userInfo.phone_number} </p>
-            <p>Code Status: {userInfo.code_status} </p>
+            <p><span>Name: </span>{userInfo.full_name} </p>
+            <p><span>Date of Birth: </span>{current_user.date_of_birth}</p>
+            <p><span>Gender: </span>{userInfo.gender} </p>
+            <p><span>Phone Number: </span>{userInfo.phone_number}</p>
+            <p><span>Code Status: </span>{userInfo.code_status}</p>
             <Link to={`/userprofileedit/${userInfo.id}`}>
               <Button className="edit-btn"> Edit Info </Button>
             </Link>
@@ -31,20 +31,28 @@ class MyProfileIndex extends Component {
           </div>
           <div className="profile-container-2">
             <div className="wrapper-1">
-              <p>Allergies: {userInfo.allergy} </p>
-              <p>Medical History: {userInfo.medical_history} </p>
-              <p>Treatment Refusals: {userInfo.treatment_refusal} </p>
-              <p>Medical Conditions: {userInfo.medical_condition} </p>
-              <p>Date of Diagnosis: {userInfo.diagnosis_date} </p>
-              <p>Prescription Medications: {userInfo.medication} </p>
-              <p>Dosage: {userInfo.dosage} </p>
+              <span>Allergies</span>
+              <p>{userInfo.allergy}</p>
+              <span>Medical History</span>
+              <p>{userInfo.medical_history}</p>
+              <span>Treatment Refusals</span>
+              <p>{userInfo.treatment_refusal}</p>
+              <span>Medical Condition</span>
+              <p>{userInfo.medical_condition}</p>
+              <span>Prescription Medications</span>
+              <p>{userInfo.medication}</p>
             </div>
             <div className="wrapper-2">
-              <p>Pregnancy Status: {userInfo.pregnancy_status} </p>
-              <p>Smoker: {userInfo.smoker} </p>
-              <p>Alcohol Use: {userInfo.alcohol} </p>
-              <p>Recreational Drug Use: {userInfo.recreational_drug} </p>
-              <p>Last Day of Menstruation: {userInfo.menstruation} </p>
+              <span>Pregnancy Status</span>
+              <p>{userInfo.pregnancy_status}</p>
+              <span>Last Day of Menstruation</span>
+              <p>{userInfo.menstruation}</p>
+              <span>Smoker</span>
+              <p>{userInfo.smoker}</p>
+              <span>Alcohol Use</span>
+              <p>{userInfo.alcohol}</p>
+              <span>Recreational Drug Use</span>
+              <p>{userInfo.recreational_drug}</p>
             </div>
           </div>
         </div>
