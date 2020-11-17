@@ -11,7 +11,14 @@ class EmergencyContactsIndex extends Component {
     return (
       <>
         <div className="index-body">
-          <h3>Emergency Contacts</h3>
+          <div className="index-wrapper-1">
+            <h3>Emergency Contacts</h3>
+            { this.props.userInfo && 
+              <Link to={"/contactinfonew"}>
+                <Button className="add-btn">Add a New Emergency Contact</Button>
+              </Link>
+            }
+          </div>
           {this.props.contactInfo &&
 
             this.props.contactInfo.map((contact, index) => {
@@ -31,11 +38,6 @@ class EmergencyContactsIndex extends Component {
                 </div>
               )
             })}
-            { this.props.userInfo && 
-              <Link to={"/contactinfonew"}>
-                <Button className="add-btn">Add a New Emergency Contact</Button>
-              </Link>
-            }
         </div>
       </>
     )

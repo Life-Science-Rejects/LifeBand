@@ -1,6 +1,10 @@
 @import "bootstrap";
 
 // --- BODY --- //
+body {
+    background-color: #65c8d0;
+}
+
 a {
     color: #fff;
     margin: 25px;
@@ -15,7 +19,7 @@ h3 {
     text-align: center;
 }
 .nav {
-    padding: 15px 0px;
+    padding: 15px 0;
 }
 
 .home-img {
@@ -24,21 +28,46 @@ h3 {
 }
 
 // --- PROFILE VIEW --- //
-.profile-contents {
+.profile-components {
     display: flex;
-    flex-direction: wrap;
+    flex-direction: column;
 }
 .user-profile-body {
-    text-align: center;
-    border: 1px solid #478f92;
+    display: flex;
+    flex-wrap: wrap;
     margin: 15px 30px;
-    width: 500px;
     padding: 15px 10px;
+}
+
+.profile-container-1,
+.wrapper-1,
+.wrapper-2 {
+    background-color: #fff;
+    padding: 20px;
+    margin: 5px;
+}
+
+.profile-container-1 {
+    border-radius: 20px 0 0 20px;
+    text-align: center;
+}
+
+.profile-container-2 {
+    justify-content: space-evenly;
+}
+
+.wrapper-1 {
+    border-radius: 0 20px 0 0;
+}
+
+.wrapper-2 {
+    border-radius: 0 0 20px 0;
 }
 
 .avatar {
     width: 200px;
     height: auto;
+    padding: 5px;
 }
 
 // --- PROFILE EDIT --- //
@@ -51,13 +80,23 @@ h3 {
 
 // --- EMERGENCY CONTACT --- //
 .index-body {
-    width: 300px;
-    border: 2px solid #92477d;
+    display: flex;
+    flex-direction: row;
+    background-color: #fff;
+    border: none;
+    border-radius: 20px;
     margin: 15px 30px;
+    padding: 10px;
+}
+
+.index-wrapper-1 {
+    display: flex;
+    flex-direction: column;
 }
 
 .e-contact {
     border: 2px solid #478f92;
+    margin: 3px;
     padding: 15px;
     width: 296px;
 }
@@ -105,7 +144,7 @@ h3 {
 
 h6 {
     font-weight: bold;
-    margin: 0px 25px;
+    margin: 0 25px;
     padding-top: 10px;
     padding-bottom: 5px;
 }
