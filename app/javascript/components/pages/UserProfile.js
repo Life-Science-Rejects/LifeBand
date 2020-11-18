@@ -16,7 +16,6 @@ class UserProfile extends Component {
           <div className="profile-container-1">
           <h3><span>{userInfo.full_name}</span></h3>
             <img className="avatar" src={userIcon} alt="generic illustrated user avatar" />
-            <p>Date of Birth: {current_user.date_of_birth} </p>
             <p>Gender: {userInfo.gender} </p>
             <p>Phone Number: {userInfo.phone_number} </p>
             <p>Code Status: {userInfo.code_status} </p>

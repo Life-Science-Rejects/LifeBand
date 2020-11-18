@@ -13,32 +13,33 @@ class Header extends Component {
       <>
         <div>
           <Nav className="header">
+            <p className="app-name">Life<span>Band</span></p>
             <NavItem>
-              <a href="/">Home</a>
+              <a className="footer-link" href="/">Home</a>
             </NavItem>
             <NavItem>
-              <a href="/usershow/1">Demo</a>
+              <a className="footer-link" href="/usershow/1">Demo</a>
             </NavItem>
             { logged_in &&
               <>
                 <NavItem>
-                  <a href={"/myprofileindex"}>My Profile</a>
+                  <a className="footer-link" href={"/myprofileindex"}>My Profile</a>
                 </NavItem>
                 <NavItem>
-                  <a href={sign_out_route}>Sign Out</a>
+                  <a className="footer-link" href={sign_out_route}>Sign Out</a>
                 </NavItem>
               </>
             }
             { !logged_in &&
               <>
                 <NavItem>
-                  <a href="/learnmore">Learn More</a>
+                  <a className="footer-link" href="/learnmore">Learn More</a>
                 </NavItem>
                 <NavItem>
-                  <a href={sign_in_route}>Sign In</a>
+                  <a className="footer-link" href={sign_in_route}>Sign In</a>
                 </NavItem>
                 <NavItem>
-                  <a href={sign_up_route}>Sign Up</a>
+                  <a className="footer-link" href={sign_up_route}>Sign Up</a>
                 </NavItem>
               </>
             }

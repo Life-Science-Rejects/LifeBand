@@ -5,7 +5,8 @@ body {
     background-color: #65c8d0;
 }
 
-a {
+.header-link,
+.footer-link {
     color: #fff;
     margin: 25px;
 }
@@ -22,9 +23,26 @@ h3 {
     padding: 15px 0;
 }
 
+// --- HOME PAGE --- //
+.app-name {
+    font-size: 25px;
+    position: absolute;
+    top: 6px;
+    left: 10px;
+}
+
 .home-img {
     width: 100%;
     height: auto;
+}
+
+.new-user-msg {
+    background-color: #fff;
+    text-align: center;
+}
+
+.here {
+    color: #92477d !important;
 }
 
 // --- PROFILE VIEW --- //
@@ -87,6 +105,10 @@ span {
     border-radius: 20px;
 }
 
+.reminder {
+    font-style: italic;
+    font-size: 12px;
+}
 
 // --- EMERGENCY CONTACT --- //
 .index-body {
@@ -114,6 +136,8 @@ span {
 .icon {
     width: 50px;
     height: auto;
+    padding: 0 4px;
+    float: right;
 }
 
 .add-btn {
@@ -129,7 +153,6 @@ span {
     background-color: #fff;
     border-radius: 20px;
 }
-
 
 // --- HEADER --- //
 .header {
@@ -152,4 +175,16 @@ h6 {
     margin: 0 25px;
     padding-top: 10px;
     padding-bottom: 5px;
+}
+
+// --- LEARN MORE PAGE --- //
+.learn-more {
+    background-color: #fff;
+    padding: 30px 50px;
+}
+
+// --- DEVISE --- //
+.devise {
+    padding: 50px !important;
+    margin: auto !important;
 }

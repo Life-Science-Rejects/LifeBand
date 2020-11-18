@@ -171,8 +171,6 @@ class App extends Component {
       current_user
     } = this.props
 
-    //console.log(this.getMedicalCondition());
-
     return (
       <Router>
         <Header
@@ -311,7 +309,19 @@ class App extends Component {
           <Route path="/devteam" component={DevTeam} />
           <Route path="/faq" component={Faq} />
           <Route path="/learnmore" component={LearnMore} />
-          <Route exact path="/" component={Home} />
+          <Route
+            exact path="/"
+            render={(props) => {
+              return (
+                <Home
+                  current_user={current_user}
+                  logged_in={logged_in}
+                  personalInfo={this.state.personalInfo}
+                />
+              )
+            }
+            }
+          />
           <Route component={NotFound} />
         </Switch>
 

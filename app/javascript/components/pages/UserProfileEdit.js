@@ -325,7 +325,7 @@ class UserProfileEdit extends Component {
                   value={this.state.form.menstruation}
                 />
             </FormGroup>
-            
+
             <FormGroup>
               <Label>Code Status</Label>
               <Input
@@ -366,6 +366,9 @@ class UserProfileEdit extends Component {
               />
             </FormGroup>
 
+            <p className="reminder">
+              Disclaimer: Remember, typing your full name acts as a signature, and upon submitting this form, you agree to release your personal medical information under HIPAA!
+            </p>
             <Button
               className="submit-btn"
               name="submit"

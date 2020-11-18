@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import {
     Button,
+    Col,
     Form,
     FormGroup,
     Input,
-    Label
+    Label,
+    Row
 } from 'reactstrap'
 import { Redirect } from 'react-router-dom'
 
@@ -367,6 +369,10 @@ class UserProfileNew extends Component {
                             />
                         </FormGroup>
 
+                        <p className="reminder">
+                            Disclaimer: Remember, typing your full name acts as a signature, and upon submitting this form, you agree to release your personal medical information under HIPAA!
+                        </p>
+                        
                         <Button
                             className="submit-btn"
                             name="submit"

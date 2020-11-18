@@ -9,7 +9,7 @@ class MyProfileIndex extends Component {
   render() {
     const { userInfo, current_user } = this.props
     if (!userInfo) {
-        return (<h3>Error:  </h3>)
+        return (<h3>Error: Please create a profile! </h3>)
 
     }
     return (
