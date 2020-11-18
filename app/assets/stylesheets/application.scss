@@ -39,6 +39,8 @@ h3 {
 .new-user-msg {
     background-color: #fff;
     text-align: center;
+    font-size: 30px;
+    padding-top: 20px;
 }
 
 .here {
@@ -177,14 +179,8 @@ h6 {
     padding-bottom: 5px;
 }
 
-// --- LEARN MORE PAGE --- //
-.learn-more {
+// --- LEARN MORE & FAQ PAGE --- //
+.learn-more, .faq {
     background-color: #fff;
     padding: 30px 50px;
-}
-
-// --- DEVISE --- //
-.devise {
-    padding: 50px !important;
-    margin: auto !important;
 }
