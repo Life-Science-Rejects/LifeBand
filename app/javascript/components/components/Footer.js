@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Nav, NavItem, NavLink } from 'reactstrap'
+import { Nav, NavItem } from 'reactstrap'
 
 class Footer extends Component {
   render() {
@@ -17,7 +17,7 @@ class Footer extends Component {
               <div>
                 <h6>Account</h6>
                   <NavItem>
-                    <a href={sign_out_route}>Sign Out</a>
+                    <a className="header-link" href={sign_out_route}>Sign Out</a>
                   </NavItem>
               </div>
             }
@@ -26,10 +26,10 @@ class Footer extends Component {
                 <div>
                   <h6>Account</h6>
                   <NavItem>
-                    <a href={sign_in_route}>Sign In</a>
+                    <a className="header-link" href={sign_in_route}>Sign In</a>
                   </NavItem>
                   <NavItem>
-                    <a href={sign_up_route}>Sign Up</a>
+                    <a className="header-link" href={sign_up_route}>Sign Up</a>
                   </NavItem>
                 </div>
               </>
@@ -37,13 +37,13 @@ class Footer extends Component {
             <div>
               <h6>About Us</h6>
               <NavItem>
-                <a href="/devteam">Meet The Devs</a>
+                <a className="header-link" href="/devteam">Meet The Devs</a>
               </NavItem>
             </div>
             <div>
               <h6>Support</h6>
               <NavItem>
-                <a href="/faq">FAQ</a>
+                <a className="header-link" href="/faq">FAQ</a>
               </NavItem>
             </div>
           </Nav>

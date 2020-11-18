@@ -5,7 +5,7 @@ import userIcon from '../assets/user-icon.jpg'
 
 class UserProfile extends Component {
   render() {
-    const { userInfo } = this.props
+    const { userInfo, current_user } = this.props
     if (!userInfo) {
       return (<h3>Error</h3>)
     }
@@ -13,24 +13,39 @@ class UserProfile extends Component {
     return (
       <>
         <div className="user-profile-body">
-          <h3>Welcome back {userInfo.full_name}!</h3>
-          <img className="avatar" src={userIcon} alt="generic illustrated user avatar" />
-          <p>Name: {userInfo.full_name} </p>
-          <p>Gender: {userInfo.gender} </p>
-          <p>Phone Number: {userInfo.phone_number} </p>
-          <p>Allergies: {userInfo.allergy} </p>
-          <p>Medical History: {userInfo.medical_history} </p>
-          <p>Treatment Refusals: {userInfo.treatment_refusal} </p>
-          <p>Pregnancy Status: {userInfo.pregnancy_status} </p>
-          <p>Smoker: {userInfo.smoker} </p>
-          <p>Alcohol Use: {userInfo.alcohol} </p>
-          <p>Recreational Drug Use: {userInfo.recreational_drug} </p>
-          <p>Last Day of Menstruation: {userInfo.menstruation} </p>
-          <p>Code Status: {userInfo.code_status} </p>
-          <p>Medical Conditions: {userInfo.medical_condition} </p>
-          <p>Date of Diagnosis: {userInfo.diagnosis_date} </p>
-          <p>Prescription Medications: {userInfo.medication} </p>
-          <p>Dosage: {userInfo.dosage} </p>
+          <div className="profile-container-1">
+          <h3><span>{userInfo.full_name}</span></h3>
+            <img className="avatar" src={userIcon} alt="generic illustrated user avatar" />
+            <p>Gender: {userInfo.gender} </p>
+            <p>Phone Number: {userInfo.phone_number} </p>
+            <p>Code Status: {userInfo.code_status} </p>
+          </div>
+          <div className="profile-container-2">
+            <div className="wrapper-1">
+              <span>Allergies</span>
+              <p>{userInfo.allergy}</p>
+              <span>Medical History</span>
+              <p>{userInfo.medical_history}</p>
+              <span>Treatment Refusals</span>
+              <p>{userInfo.treatment_refusal}</p>
+              <span>Medical Conditions</span>
+              <p>{userInfo.medical_condition}</p>
+              <span>Prescription Medications</span>
+              <p>{userInfo.medication}</p>
+            </div>
+            <div className="wrapper-2">
+              <span>Pregnancy Status</span>
+              <p>{userInfo.pregnancy_status}</p>
+              <span>Last Day of Menstruation</span>
+              <p>{userInfo.menstruation}</p>
+              <span>Smoker</span>
+              <p>{userInfo.smoker}</p>
+              <span>Alcohol Use</span>
+              <p>{userInfo.alcohol}</p>
+              <span>Recreational Drug Use</span>
+              <p>{userInfo.recreational_drug}</p>
+            </div>
+          </div>
         </div>
       </>
     )

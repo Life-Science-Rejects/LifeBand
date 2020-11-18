@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?> <!-- Created with Vectornator for iOS (http://vectornator.io/) --><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;" xmlns:vectornator="http://vectornator.io" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" version="1.1" viewBox="0 0 512 512">
+<metadata>
+<vectornator:setting key="DynamicGuides" value="1"/>
+<vectornator:setting key="Units" value="Points"/>
+<vectornator:setting key="GuidesVisible" value="1"/>
+<vectornator:setting key="RulersVisible" value="1"/>
+<vectornator:setting key="SnapToGuides" value="1"/>
+<vectornator:setting key="GridSpacing" value="36"/>
+</metadata>
+<defs/>
+<g id="Layer 1" vectornator:layerName="Layer 1">
+<path stroke="#000000" fill-rule="evenodd" stroke-width="30" d="M17.649+256C17.649+124.362+124.362+17.649+256+17.649C387.638+17.649+494.351+124.362+494.351+256C494.351+387.638+387.638+494.351+256+494.351C124.362+494.351+17.649+387.638+17.649+256Z" fill="#ffffff" stroke-linecap="round" opacity="1" stroke-linejoin="round"/>
+<path stroke="#000000" fill-rule="evenodd" stroke-width="20" d="M382.626+99.2196C364.172+81.2721+343.454+72.3191+336.358+79.2206L113.382+296.074L180.109+360.968L402.262+144.914C402.582+144.691+402.91+144.488+403.189+144.217C410.286+137.316+401.08+117.167+382.626+99.2196Z" fill="#d0bb65" stroke-linecap="butt" opacity="1" stroke-linejoin="round"/>
+<path stroke="#000000" fill-rule="evenodd" stroke-width="20" d="M159.65+316.073C141.196+298.125+120.479+289.172+113.382+296.074L104.828+369.472L180.214+361.07C187.31+354.169+178.105+334.02+159.65+316.073Z" fill="#ffffff" stroke-linecap="round" opacity="1" stroke-linejoin="round"/>
+<path stroke="#000000" fill-rule="evenodd" stroke-width="20" d="M126.986+347.84C119.519+340.578+111.136+336.955+108.265+339.748L104.803+369.447L135.307+366.048C138.179+363.255+134.454+355.102+126.986+347.84Z" fill="#000000" stroke-linecap="butt" opacity="1" stroke-linejoin="round"/>
+<path stroke="#000000" stroke-width="20" d="M101.404+393.575C305.647+393.575+410.596+393.454+410.596+393.454" fill="none" stroke-linecap="round" opacity="1" stroke-linejoin="round"/>
+</g>
+</svg>

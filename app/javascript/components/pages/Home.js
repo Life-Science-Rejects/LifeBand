@@ -1,14 +1,25 @@
 import React, { Component } from 'react'
 import lifeband from '../assets/lifeband-home.jpg'
 
-
 class Home extends Component {
   render() {
+    const {current_user,logged_in, personalInfo} = this.props
+    if(logged_in) {
+      let noProfile = personalInfo.filter((info, index) => {
+        return index + 1 === current_user.id
+      }).length
+      if(noProfile === 0) {
+        return(
+          <div className="new-user-msg">
+            <p>Hey there! I see you haven't made a profile.
+            <br />Please make one <a className="here" href="/userprofilenew">here</a>!</p>
+            <img className="home-img" src={lifeband} alt="hiker and foodie illustration" />
+          </div>
+        )
+      }
+    }
     return (
       <>
-        <h3>
-          This is the LifeBand Home.
-        </h3>
         <img className="home-img" src={lifeband} alt="hiker and foodie illustration" />
       </>
     )

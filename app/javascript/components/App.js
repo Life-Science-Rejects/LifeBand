@@ -68,8 +68,6 @@ class App extends Component {
   getQRCode = (url) => {
     fetch(`https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=${url}&choe=UTF-8`)
       .then(payload => {
-        console.log("payload:", payload)
-        console.log("payload URL:", payload.url)
         this.setState({ qrCode: payload.url })
       })
       .catch(errors => {
@@ -173,8 +171,6 @@ class App extends Component {
       current_user
     } = this.props
 
-    //console.log(this.getMedicalCondition());
-
     return (
       <Router>
         <Header
@@ -198,8 +194,8 @@ class App extends Component {
               let userInfo = this.state.personalInfo.find(user => user.id === parseInt(localid))
               let contactInfo = this.state.emergencyContacts.filter(contact => contact.user_id === parseInt(localid))
               return (
-                <div className="profile-contents">
-                  <UserProfile userInfo={userInfo} />
+                <div className="profile-components">
+                  <UserProfile userInfo={userInfo} current_user={current_user} />
                   <EmergencyContactsIndex
                     emergencyContacts={this.state.emergencyContacts}
                     contactInfo={contactInfo}
@@ -313,7 +309,19 @@ class App extends Component {
           <Route path="/devteam" component={DevTeam} />
           <Route path="/faq" component={Faq} />
           <Route path="/learnmore" component={LearnMore} />
-          <Route exact path="/" component={Home} />
+          <Route
+            exact path="/"
+            render={(props) => {
+              return (
+                <Home
+                  current_user={current_user}
+                  logged_in={logged_in}
+                  personalInfo={this.state.personalInfo}
+                />
+              )
+            }
+            }
+          />
           <Route component={NotFound} />
         </Switch>
 

@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import {
   Button,
+  Col,
   Form,
   FormGroup,
   Input,
-  Label
+  Label,
+  Row
 } from 'reactstrap'
 import { Redirect } from 'react-router-dom'
 //this will remain a page. upon new and save, user will be taken back to their my user profile index
@@ -42,34 +44,44 @@ class EmergencyContactsEdit extends Component {
       <>
         <h3>Edit Emergency Contact</h3>
         <div className="form-body">
+          <Row>
+            <Col>
+              <FormGroup>
+                <Label>Full Name</Label>
+                <Input
+                  type="string"
+                  name="full_name"
+                  onChange={this.handleChange}
+                  value={this.state.form.full_name}
+                />
+              </FormGroup>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <FormGroup>
+                <Label>Relationship</Label>
+                <Input
+                  type="string"
+                  name="relationship"
+                  onChange={this.handleChange}
+                  value={this.state.form.relationship}
+                />
+              </FormGroup>
+            </Col>
+            <Col>
+              <FormGroup>
+                <Label>Phone Number</Label>
+                <Input
+                  type="string"
+                  name="phone_number"
+                  onChange={this.handleChange}
+                  value={this.state.form.phone_number}
+                />
+              </FormGroup>
+            </Col>
+          </Row>
           <Form>
-            <FormGroup>
-              <Label>Full Name</Label>
-              <Input
-                type="string"
-                name="full_name"
-                onChange={this.handleChange}
-                value={this.state.form.full_name}
-              />
-            </FormGroup>
-            <FormGroup>
-              <Label>Relationship</Label>
-              <Input
-                type="string"
-                name="relationship"
-                onChange={this.handleChange}
-                value={this.state.form.relationship}
-              />
-            </FormGroup>
-            <FormGroup>
-              <Label>Phone Number</Label>
-              <Input
-                type="string"
-                name="phone_number"
-                onChange={this.handleChange}
-                value={this.state.form.phone_number}
-              />
-            </FormGroup>
             <Button
               className="submit-btn"
               name="submit"

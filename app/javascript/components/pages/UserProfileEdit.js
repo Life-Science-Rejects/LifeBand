@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import {
   Button,
+  Col,
   Form,
   FormGroup,
   Input,
-  Label
+  Label,
+  Row
 } from 'reactstrap'
 import { Redirect } from 'react-router-dom'
 //this will remain a page. upon edit and save, user will be taken back to their my user profile index
@@ -27,9 +29,7 @@ class UserProfileEdit extends Component {
         menstruation: this.props.userInfo.menstruation,
         code_status: this.props.userInfo.code_status,
         medical_condition: this.props.userInfo.medical_condition,
-        diagnosis_date: this.props.userInfo.diagnosis_date,
         medication: this.props.userInfo.medication,
-        dosage: this.props.userInfo.dosage
       },
       success: false
     }
@@ -54,150 +54,321 @@ class UserProfileEdit extends Component {
         <h3>Edit Personal Info</h3>
         <div className="form-body">
           <Form>
-            <FormGroup>
-              <Label>Full Name</Label>
-              <Input
-                type="string"
-                name="full_name"
-                onChange={this.handleChange}
-                value={this.state.form.full_name}
-              />
-            </FormGroup>
-            <FormGroup>
-              <Label>Gender</Label>
-              <Input
-                type="string"
-                name="gender"
-                onChange={this.handleChange}
-                value={this.state.form.gender}
-              />
-            </FormGroup>
-            <FormGroup>
-              <Label>Phone Number</Label>
-              <Input
-                type="string"
-                name="phone_number"
-                onChange={this.handleChange}
-                value={this.state.form.phone_number}
-              />
-            </FormGroup>
+            <Row>
+              <Col s="auto">
+                <FormGroup>
+                  <Label>Full Name</Label>
+                  <Input
+                    type="string"
+                    name="full_name"
+                    onChange={this.handleChange}
+                    value={this.state.form.full_name}
+                  />
+                </FormGroup>
+              </Col>
+              <Col xs="auto">
+                <FormGroup>
+                  <Label>Gender</Label>
+                  <Input
+                    type="string"
+                    name="gender"
+                    onChange={this.handleChange}
+                    value={this.state.form.gender}
+                  />
+                </FormGroup>
+              </Col>
+              <Col xs="auto">
+                <FormGroup>
+                  <Label>Phone Number</Label>
+                  <Input
+                    type="string"
+                    name="phone_number"
+                    onChange={this.handleChange}
+                    value={this.state.form.phone_number}
+                  />
+                </FormGroup>
+              </Col>
+            </Row>
+
             <FormGroup>
               <Label>Allergy</Label>
               <Input
-                type="text"
+                type="textarea"
                 name="allergy"
                 onChange={this.handleChange}
                 value={this.state.form.allergy}
               />
             </FormGroup>
+
             <FormGroup>
               <Label>Medical History</Label>
               <Input
-                type="text"
+                type="textarea"
                 name="medical_history"
                 onChange={this.handleChange}
                 value={this.state.form.medical_history}
               />
             </FormGroup>
+
             <FormGroup>
               <Label>Treatment Refusal</Label>
               <Input
-                type="text"
+                type="textarea"
                 name="treatment_refusal"
                 onChange={this.handleChange}
                 value={this.state.form.treatment_refusal}
               />
             </FormGroup>
+
             <FormGroup>
               <Label>Pregnancy Status</Label>
-              <Input
-                type="string"
-                name="pregnancy_status"
-                onChange={this.handleChange}
-                value={this.state.form.pregnancy_status}
-              />
+              <FormGroup check>
+                <Label check>
+                  <Input
+                    type="radio"
+                    name="pregnancy_status"
+                    value="No"
+                    onChange={this.handleChange}
+                    checked={this.state.form.pregnancy_status === "No"}
+                  />
+                  No
+                </Label>
+              </FormGroup>
+              <FormGroup check>
+                <Label check>
+                  <Input
+                    type="radio"
+                    name="pregnancy_status"
+                    value="Yes"
+                    onChange={this.handleChange}
+                    checked={this.state.form.pregnancy_status === "Yes"}
+                  />
+                  Yes
+                </Label>
+              </FormGroup>
+              <FormGroup check>
+                <Label check>
+                  <Input
+                    type="radio"
+                    name="pregnancy_status"
+                    value="Does not apply"
+                    onChange={this.handleChange}
+                    checked={this.state.form.pregnancy_status === "Does not apply"}
+                  />
+                  Does not apply
+                </Label>
+              </FormGroup>
             </FormGroup>
+
             <FormGroup>
               <Label>Smoker</Label>
-              <Input
-                type="string"
-                name="smoker"
-                onChange={this.handleChange}
-                value={this.state.form.smoker}
-              />
+              <FormGroup check>
+                <Label check>
+                  <Input 
+                    type="radio"
+                    name="smoker"
+                    value="No"
+                    onChange={this.handleChange}
+                    checked={this.state.form.smoker === "No"}
+                  />
+                  No
+                </Label>
+              </FormGroup>
+              <FormGroup check inline>
+                <Label check>
+                  <Input 
+                    type="radio"
+                    name="smoker"
+                    value="Yes, rarely"
+                    onChange={this.handleChange}
+                    checked={this.state.form.smoker === "Yes, rarely"}
+                  />
+                  Yes, rarely
+                </Label>
+              </FormGroup>
+              <FormGroup check inline>
+                <Label check>
+                  <Input
+                    type="radio"
+                    name="smoker"
+                    value="Yes, sometimes"
+                    onChange={this.handleChange}
+                    checked={this.state.form.smoker === "Yes, sometimes"}
+                  />
+                  Yes, sometimes
+                </Label>
+              </FormGroup>
+              <FormGroup check inline>
+                <Label check>
+                  <Input
+                    type="radio"
+                    name="smoker"
+                    value="Yes, frequently"
+                    onChange={this.handleChange}
+                    checked={this.state.form.smoker === "Yes, frequently"}
+                  />
+                  Yes, frequently
+                </Label>
+              </FormGroup>
             </FormGroup>
+
             <FormGroup>
               <Label>Alcohol</Label>
-              <Input
-                type="string"
-                name="alcohol"
-                onChange={this.handleChange}
-                value={this.state.form.alcohol}
-              />
+              <FormGroup check>
+                <Label check>
+                  <Input 
+                    type="radio"
+                    name="alcohol"
+                    value="No"
+                    onChange={this.handleChange}
+                    checked={this.state.form.alcohol === "No"}
+                  />
+                  No
+                </Label>
+              </FormGroup>
+              <FormGroup check inline>
+                <Label check>
+                <Input
+                    type="radio"
+                    name="alcohol"
+                    value="Yes, rarely"
+                    onChange={this.handleChange}
+                    checked={this.state.form.alcohol === "Yes, rarely"}
+                  />
+                  Yes, rarely
+                </Label>
+              </FormGroup>
+              <FormGroup check inline>
+                <Label check>
+                  <Input
+                    type="radio"
+                    name="alcohol"
+                    value="Yes, sometimes"
+                    onChange={this.handleChange}
+                    checked={this.state.form.alcohol === "Yes, sometimes"}
+                  />
+                  Yes, sometimes
+                </Label>
+              </FormGroup>
+              <FormGroup check inline>
+                <Label check>
+                  <Input
+                    type="radio"
+                    name="alcohol"
+                    value="Yes, frequently"
+                    onChange={this.handleChange}
+                    checked={this.state.form.alcohol === "Yes, frequently"}
+                  />
+                  Yes, frequently
+                </Label>
+              </FormGroup>
             </FormGroup>
+
             <FormGroup>
-              <Label>Recreational Drug</Label>
-              <Input
-                type="string"
-                name="recreational_drug"
-                onChange={this.handleChange}
-                value={this.state.form.recreational_drug}
-              />
+              <Label>Recreational Drug Use</Label>
+              <FormGroup check>
+                <Label check>
+                  <Input
+                    type="radio"
+                    name="recreational_drug"
+                    value="No"
+                    onChange={this.handleChange}
+                    checked={this.state.form.recreational_drug === "No"}
+                  />
+                  No
+                </Label>
+              </FormGroup>
+              <FormGroup check inline>
+                <Label check>
+                  <Input
+                    type="radio"
+                    name="recreational_drug"
+                    value="Yes, rarely"
+                    onChange={this.handleChange}
+                    checked={this.state.form.recreational_drug === "Yes, rarely"}
+                  />
+                  Yes, rarely
+                </Label>
+              </FormGroup>
+              <FormGroup check inline>
+                <Label check>
+                  <Input
+                    type="radio"
+                    name="recreational_drug"
+                    value="Yes, sometimes"
+                    onChange={this.handleChange}
+                    checked={this.state.form.recreational_drug === "Yes, sometimes"}
+                  />
+                  Yes, sometimes
+                </Label>
+              </FormGroup>
+              <FormGroup check inline>
+                <Label check>
+                  <Input
+                    type="radio"
+                    name="recreational_drug"
+                    value="Yes, frequently"
+                    onChange={this.handleChange}
+                    checked={this.state.form.recreational_drug === "Yes, frequently"}
+                  />
+                  Yes, frequently
+                </Label>
+              </FormGroup>
             </FormGroup>
+
             <FormGroup>
-              <Label>Menstruation</Label>
-              <Input
-                type="string"
-                name="menstruation"
-                onChange={this.handleChange}
-                value={this.state.form.menstruation}
-              />
+              <Label>Last Day of Menstruation</Label>
+                <Input
+                  type="string"
+                  name="menstruation"
+                  onChange={this.handleChange}
+                  value={this.state.form.menstruation}
+                />
             </FormGroup>
+
             <FormGroup>
               <Label>Code Status</Label>
               <Input
-                type="string"
+                type="select"
                 name="code_status"
                 onChange={this.handleChange}
                 value={this.state.form.code_status}
-              />
+              >
+                <option>Full Code</option>
+                <option>CPR</option>
+                <option>No code</option>
+                <option>DNR</option>
+                <option>DNI</option>
+                <option>NFR</option>
+                <option>AND</option>
+                <option>No CPR</option>
+                <option>DNAR</option>
+              </Input>
             </FormGroup>
+
             <FormGroup>
               <Label>Medical Condition</Label>
               <Input
-                type="string"
+                type="textarea"
                 name="medical_condition"
                 onChange={this.handleChange}
                 value={this.state.form.medical_condition}
               />
             </FormGroup>
-            <FormGroup>
-              <Label>Diagnosis Date</Label>
-              <Input
-                type="string"
-                name="diagnosis_date"
-                onChange={this.handleChange}
-                value={this.state.form.diagnosis_date}
-              />
-            </FormGroup>
+
             <FormGroup>
               <Label>Medication</Label>
               <Input
-                type="string"
+                type="textarea"
                 name="medication"
                 onChange={this.handleChange}
                 value={this.state.form.medication}
               />
             </FormGroup>
-            <FormGroup>
-              <Label>Dosage</Label>
-              <Input
-                type="string"
-                name="dosage"
-                onChange={this.handleChange}
-                value={this.state.form.dosage}
-              />
-            </FormGroup>
+
+            <p className="reminder">
+              Disclaimer: Remember, typing your full name acts as a signature, and upon submitting this form, you agree to release your personal medical information under HIPAA!
+            </p>
             <Button
               className="submit-btn"
               name="submit"
